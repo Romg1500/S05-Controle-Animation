@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class ControleAraigneeV1 : MonoBehaviour
 {
-    // varaibles de mouvement et contrôle
+    // varaibles de mouvement et contrï¿½le
     [SerializeField] private float vitessePromenade;
     private Rigidbody _rb;
     private Vector3 directionInput;
