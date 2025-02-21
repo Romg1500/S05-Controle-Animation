@@ -6,12 +6,12 @@ using UnityEngine.Windows;
 
 public class ControleAraigneeV3 : MonoBehaviour
 {
-    // variables de mouvement et contrôle
+    // variables de mouvement et contrï¿½le
     [SerializeField] private float _vitessePromenade;
     private Rigidbody _rb;
     private Vector3 directionInput;
 
-    // variables de contrôle d'animation
+    // variables de contrï¿½le d'animation
     [SerializeField] private float _modifierAnimTranslation;
     private Animator _animator;
     private float _rotationVelocity;
@@ -26,6 +26,7 @@ public class ControleAraigneeV3 : MonoBehaviour
     {
         Vector2 directionAvecVitesse = directionBase.Get<Vector2>() * _vitessePromenade;
         directionInput = new Vector3(directionAvecVitesse.x, 0f, directionAvecVitesse.y);
+        _animator.SetFloat("Mouvement", directionInput.magnitude);
     }
 
     void FixedUpdate()
@@ -48,6 +49,7 @@ public class ControleAraigneeV3 : MonoBehaviour
 
         // calculer un modifiant pour la vitesse d'animation
         Vector3 vitesseSurPlane = new Vector3(_rb.velocity.x, 0f, _rb.velocity.z);
+
         _animator.SetFloat("Vitesse", vitesseSurPlane.magnitude * _modifierAnimTranslation);
         _animator.SetFloat("Deplacement", vitesseSurPlane.magnitude);
     }
